@@ -1,0 +1,33 @@
+language: en
+
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+
+  path_instructions:
+    - path: "contracts/**"
+      instructions: |
+        Review Rust/Soroban contract logic for reentrancy, integer overflow,
+        authorization checks, and correct event emission.
+
+    - path: "src/hooks/**"
+      instructions: |
+        Check for correct async handling, loading/error states,
+        and no direct contract calls outside the hooks layer.
+
+    - path: "src/lib/**"
+      instructions: |
+        Verify typed SDK usage, no raw string contract IDs,
+        and proper wallet connection handling.
+
+    - path: "tests/**"
+      instructions: |
+        Ensure no live network calls without mocking.
+        Flag missing coverage for error and edge cases.
+
+chat:
+  auto_reply: true
